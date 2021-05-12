@@ -20,3 +20,13 @@ Report will be generated in 3 formats-
 1. html format
 2. json format
 3. xml format
+
+# View Cucumber html Reports
+Then open the command prompt. Run the following command-
+
+mvn clean test
+
+mvn verify -DskipTests
+
+It will generate the Cucumber html report at location \Reports\cucumber-html-reports\file-src-test-resources-features-pulse-feature.html
+
