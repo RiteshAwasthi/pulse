@@ -21,8 +21,15 @@ Report will be generated in 3 formats-
 2. json format
 3. xml format
 
+# View Extent Report
+Open the command prompt and run the following command-
+
+mvn clean test
+
+Extent report will be generated at /Reports/Extent_Report.html
+
 # View Cucumber html Reports
-Then open the command prompt. Run the following command-
+Open the command prompt and run the following command-
 
 mvn clean test
 
