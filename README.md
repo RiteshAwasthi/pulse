@@ -10,6 +10,7 @@
 # Running the Test Suite via CLI-
 
 First you need to clone the 'master' branch of this project into your local machine. Make sure that you successfully import all the maven dependencies. After that run the following command to start the execution-
+
 mvn clean install
 
 # Reporting
