@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,7 +16,9 @@ import com.pwc.pulse.utilities.ReadData;
 import com.pwc.pulse.utilities.UserActionsUtilities;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -56,7 +60,7 @@ public class StepDefinitions {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		// Maximum 20 seconds it will wait to load the entire page
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		// Maximize the browsers
 		driver.manage().window().maximize();
@@ -78,6 +82,27 @@ public class StepDefinitions {
 	public void tearDown() {
 
 		driver.quit();
+	}
+	
+	/*
+	 * @author - Ritesh Awasthi
+	 * 
+	 * @param - Scenario
+	 * 
+	 * @date - 12-May-2021
+	 * 
+	 * @return - Not return any value
+	 * 
+	 * @Purpose - Purpose of this method is to capture the screenshot of failure test cases
+	 */
+	@AfterStep
+	public void addScreenshot(Scenario scenario){
+
+		//validate if scenario has failed
+		if(scenario.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png", "image");
+		}
 	}
 
 	/*
