@@ -1,5 +1,5 @@
 @All
-Feature: Verifying Home page presented with a carousel displaying Three featured articles.
+Feature: PwC Automation Testing Challenge
 
   @Scenario_1
   Scenario: Verifying after clicking on the Next button on the carousel should load the next 3 featured articles.
