@@ -1,0 +1,7 @@
+*.html
+output.xml
+.project
+.DS_Store
+project/.DS_Store
+target
+Reports
